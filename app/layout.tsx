@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./Navbar";
+import { Pixelify_Sans, VT323 } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,6 +14,16 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const vt = VT323({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-vt',
+})
+const pixelifySans = Pixelify_Sans({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-pixelify',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,8 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-[#ffdeb9] ${vt.variable} ${pixelifySans.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
