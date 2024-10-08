@@ -7,12 +7,21 @@ interface Props {
 }
 
 export default function Navbar({ user }: Props){
+    const loginMessage = [
+        "Click 'log in'—and we'll be inseparable!", 
+        "Let’s make it official—log in and I’ll remember you!", 
+        "Log in to save your footsteps in my world!", 
+        "Don’t let your path fade—log in to save it!",
+        "Want me to save your digital breadcrumbs? Just log in!"
+    ]
+    const randomIndex = Math.floor(Math.random() * 5);
     
     return (
-        <div className="bg-[#ffdeb9] w-full h-6 border-black border-b-[1px]">
-            <a href="/">
-                <img />
-                <p className="text-base pixelify">Log in to remember me</p>
+        <div className="bg-[#ffdeb9] w-full h-6 border-black border-b-[1.5px] flex flex-row">
+            <a className="flex flex-row border-black border-r-[1.5px] pr-2" href="/">
+                <img className="ml-2" src="" />
+                <p className="text-base pixelify ml-2 hidden md:block">{loginMessage[randomIndex]}</p>
+                <p className="text-base pixelify ml-2 block md:hidden">Sign in</p>
             </a>
         </div>
     )
